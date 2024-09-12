@@ -1,1 +1,12 @@
+---
+- name: Create an user on the managed system
+  hosts: all
+  become: true
 
+  tasks:
+    - name: Ensure an user, hiroshi exists
+      ansible.builtin.user:
+        name: "hiroshi"
+        state: present
+        groups: "wheel"
+        shell: "/bin/bash"
